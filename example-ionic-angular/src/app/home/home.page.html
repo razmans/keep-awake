@@ -1,0 +1,38 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title> Keep Awake Example Ionic Angular App </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  @if(isSupported){
+  <ion-grid>
+    <ion-row>
+      <ion-col offset="4" size="4" class="main_text ion-text-center">
+        Screen is kept awake?<br />
+        {{ isKeptAwake.toString().toUpperCase() }}
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  @if(!isKeptAwake){
+  <ion-button expand="block" color="dark" (click)="keepAwake()">
+    <ion-icon slot="start" name="power-outline"></ion-icon>
+    Keep Awake
+  </ion-button>
+  } @else{
+  <ion-button expand="block" color="danger" (click)="allowToSleep()">
+    <ion-icon slot="start" name="power-outline"></ion-icon>
+    Allow to sleep
+  </ion-button>
+  } } @else {
+  <ion-grid>
+    <ion-row>
+      <ion-col offset="4" size="4" class="main_text ion-text-center">
+        Screen is kept awake?<br />
+        NOT SUPPORTED
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  }
+</ion-content>
